@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+
+	"github.com/fatih/color"
+)
 
 func main() {
 	calculateAgain := true
@@ -37,8 +42,11 @@ func multiply(x, y float32) float32 {
 	return x * y
 }
 
-func divide(x, y float32) float32 {
-	return x / y
+func divide(x, y float32) (float32, error) {
+	if y == 0 {
+		return 0, errors.New("Делить на ноль нельзя!")
+	}
+	return x / y, nil
 }
 
 func runCalculation() {
@@ -60,7 +68,13 @@ func runCalculation() {
 	case "*":
 		fmt.Println("Результат: ", multiply(x, y))
 	case "/":
-		fmt.Println("Результат: ", divide(x, y))
+		result, error := divide(x, y)
+
+		if error != nil {
+			color.Red(error.Error())
+		}
+
+		fmt.Println("Результат: ", result)
 	default:
 		fmt.Println("Недопустимый оператор")
 	}
