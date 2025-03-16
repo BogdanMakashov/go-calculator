@@ -25,24 +25,24 @@ func askToCalculateAgain() bool {
 	return calculateAgain == "Да"
 }
 
-func add(x, y int) int {
+func add(x, y float64) float64 {
 	return x + y
 }
 
-func subtract(x, y int) int {
+func subtract(x, y float64) float64 {
 	return x - y
 }
 
-func multiply(x, y int) int {
+func multiply(x, y float64) float64 {
 	return x * y
 }
 
-func divide(x, y int) int {
+func divide(x, y float64) float64 {
 	return x / y
 }
 
 func runCalculation() {
-	var x, y int
+	var x, y float64
 	var operation string
 
 	fmt.Println("Введите левый операнд:")
@@ -54,13 +54,13 @@ func runCalculation() {
 
 	switch operation {
 	case "+":
-		fmt.Println(add(x, y))
+		fmt.Println("Результат: ", add(x, y))
 	case "-":
-		fmt.Println(subtract(x, y))
+		fmt.Println("Результат: ", subtract(x, y))
 	case "*":
-		fmt.Println(multiply(x, y))
+		fmt.Println("Результат: ", multiply(x, y))
 	case "/":
-		fmt.Println(divide(x, y))
+		fmt.Println("Результат: ", divide(x, y))
 	default:
 		fmt.Println("Недопустимый оператор")
 	}
