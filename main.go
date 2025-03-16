@@ -25,24 +25,24 @@ func askToCalculateAgain() bool {
 	return calculateAgain == "Да"
 }
 
-func add(x, y float64) float64 {
+func add(x, y float32) float32 {
 	return x + y
 }
 
-func subtract(x, y float64) float64 {
+func subtract(x, y float32) float32 {
 	return x - y
 }
 
-func multiply(x, y float64) float64 {
+func multiply(x, y float32) float32 {
 	return x * y
 }
 
-func divide(x, y float64) float64 {
+func divide(x, y float32) float32 {
 	return x / y
 }
 
 func runCalculation() {
-	var x, y float64
+	var x, y float32
 	var operation string
 
 	fmt.Println("Введите левый операнд:")
